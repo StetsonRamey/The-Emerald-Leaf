@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+import angela from "../assets/angela-headshot.jpeg";
+
+export interface Props {
+  id: string;
+  title: string;
+}
+
+const widths = [250, 500];
+const densities = [1.5, 2];
+
+const { title, id } = Astro.props;
+---
+
+<section id={id} class="flex scroll-mt-24 flex-col items-center gap-4 py-32">
+  <div class="flex flex-col items-center gap-4 space-y-24 px-3">
+    <slot name="eyebrow" />
+    <h2
+      class="text-balance gradient-text text-center font-extrabold tracking-tight text-6xl max-w-[70%]"
+    >
+      {title}
+    </h2>
+    <div class="wrapper">
+      <div class="auto-grid">
+        <Image
+          class="max-w-56 aspect-square rounded-full object-cover m-auto mx-auto"
+          src={angela}
+          alt="A headshot of Angela smiling"
+          densities={densities}
+        />
+        <p class="custom-color text-cream text-center font-extrabold text-2xl">
+          Hello, 👋 I'm Angela. I offer
+          <span class="text-secondary">interior</span> and
+          <span class="text-secondary">exterior</span>
+          plant watering services while you are out of town. Below is a
+          <span class="text-secondary">general list</span>
+          of services offered. Each household is unique, so please reach out if there
+          are
+          <span class="text-secondary">specifics</span>
+          you are needing.
+        </p>
+      </div>
+    </div>
+    <slot />
+  </div>
+</section>
+
+<style>
+  .auto-grid {
+    --auto-grid-min-size: 20rem;
+
+    display: grid;
+    grid-template-columns: repeat(
+      1,
+      minmax(var(--auto-grid-min-size, 16rem), 1fr)
+    );
+    grid-gap: 1rem;
+  }
+
+  @media (width >= 1100px) {
+    .wrapper {
+      max-width: 50%;
+    }
+    .auto-grid {
+      display: grid;
+      grid-template-columns: repeat(
+        2,
+        minmax(var(--auto-grid-min-size, 16rem), 1fr)
+      );
+      grid-gap: 1rem;
+    }
+  }
+</style>

@@ -1,0 +1,78 @@
+---
+import { Icon } from "astro-icon/components";
+import type { FeatureItem } from "~/types";
+
+const features: Array<FeatureItem> = [
+  {
+    title: "Plant Watering",
+    description:
+      "Inside plants, outside plants, we take care fo them ALL",
+    icon: "mdi:spa",
+  },
+  {
+    title: "Mail and Package Gathering",
+    description:
+      "We'll put keep up with your mail so it doesn't get soaked in the spring or left out during the summer",
+    icon: "mdi:mailbox-open",
+  },
+  {
+    title: "Point of Contact",
+    description:
+      "Need me to coordinate with cleaners, gardeners, or other folks for service appointments?  I've got your back.",
+    icon: "mdi:bullhorn-outline",
+  },
+  {
+    title: "Provide Lamps On Timers",
+    description:
+      "Keep the lights on, even when you're not home.",
+    icon: "mdi:lamp-outline",
+  },
+  {
+    title: "Other Cool Stuff",
+    description:
+      "Other cool stuff here",
+    icon: "mdi:emoticon-cool-outline",
+  },
+  {
+    title: "More Cool Stuff",
+    description:
+      "more really cool stuff here",
+    icon: "mdi:emoticon-cool-outline",
+  },
+];
+---
+
+<section id="services"
+  class="bg-cream flex scroll-mt-24 flex-col items-center gap-4 space-y-11 py-32"
+>
+  <div class="flex flex-col items-center gap-4">
+    <slot name="eyebrow" />
+    <h2
+      class="text-balance gradient-text text-center font-extrabold tracking-tight text-6xl"
+    >
+      Services
+    </h2>
+    <p
+      class="custom-color max-w-2xl text-cream text-left font-extrabold text-2xl"
+    >
+      <slot name="lead" />
+    </p>
+    <ul
+      class="text-secondary grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+    >
+      {
+        features.map(({ title, description, icon }) => (
+          <li class="flex flex-col items-center gap-4 border border-default p-6">
+            <div class="size-16 rounded-full border-2 border-current p-3">
+              <Icon name={icon} class="size-full" />
+            </div>
+            <p class="text-center font-extrabold text-xl">{title}</p>
+            <p class="text-center text-offset text-sm text-secondary">
+              {description}
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
