@@ -21,11 +21,16 @@ const description =
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="generator" content={generator} />
 
-    <title>Plant Care and House Sitting | Santa Barbara | The Emerald Leaf</title>
+    <title>
+      Plant Care and House Sitting | Santa Barbara | The Emerald Leaf
+    </title>
     <meta name="description" content={description} />
 
     <!-- social media -->
-    <meta property="og:title" content="Astro" />
+    <meta
+      property="og:title"
+      content="Plant Care and House Sitting | Santa Barbara | The Emerald Leaf"
+    />
     <meta property="og:type" content="website" />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
@@ -40,7 +45,7 @@ const description =
         document.documentElement.dataset.theme = themeSaved;
       } else {
         const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)",
+          "(prefers-color-scheme: dark)"
         ).matches;
         document.documentElement.dataset.theme = prefersDark ? "dark" : "light";
       }

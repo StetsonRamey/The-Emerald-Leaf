@@ -4,6 +4,6 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://www.emeraldleafsb.com/",
+  site: "https://emeraldleafsb.com/",
   integrations: [tailwind(), icon()],
 });
